@@ -1,8 +1,10 @@
+import { Content } from 'src/contents/entities/content.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -19,6 +21,12 @@ export class User extends BaseEntity {
 
   @Column()
   user_name: string;
+
+  @OneToMany((type) => Content, (content) => content.writer)
+  contents: [Content];
+
+  @OneToMany((type) => Content, (content) => content.like)
+  like: [Content];
 
   @CreateDateColumn()
   created: Date;

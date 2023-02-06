@@ -16,7 +16,7 @@ export class ContentsService {
         .putObject({
           Key: `${file.originalname}`,
           Body: file.buffer,
-          Bucket: process.env.AWS_PUBLIC_BUCKET_KEY,
+          Bucket: `${process.env.AWS_PUBLIC_BUCKET_KEY}/contents`,
         })
         .promise();
       console.log(upload);

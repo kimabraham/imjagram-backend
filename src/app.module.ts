@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/entities/user.entity';
 import { ContentsModule } from './contents/contents.module';
-import { Contents } from './contents/entities/content.entity';
+import { Content } from './contents/entities/content.entity';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { Contents } from './contents/entities/content.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [User, Contents],
+      entities: [User, Content],
       synchronize: true,
       logging: true,
     }),
