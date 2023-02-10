@@ -4,7 +4,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -14,19 +13,16 @@ export class User extends BaseEntity {
   id: number;
 
   @Column()
-  user_id: string;
+  userId: string;
 
   @Column()
   password: string;
 
   @Column()
-  user_name: string;
+  name: string;
 
-  @OneToMany((type) => Content, (content) => content.writer)
-  contents: [Content];
-
-  @OneToMany((type) => Content, (content) => content.like)
-  like: [Content];
+  @Column()
+  userName: string;
 
   @CreateDateColumn()
   created: Date;
